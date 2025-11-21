@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Navbar from "./components/Navbar"
+import Homepage from "./components/Homepage"
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -15,6 +16,7 @@ function App() {
   return (
       <div>
         <Navbar scrolled={scrolled}/>
+        <Homepage/>
       </div>
   )
 }

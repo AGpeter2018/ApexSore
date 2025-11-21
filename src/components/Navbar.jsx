@@ -50,7 +50,7 @@ const Navbar = ({scrolled}) => {
                   </AnchorLink>
                   <div className='flex items-center'>
                   <AnchorLink href="#shop" offset={50} >
-                    <a  className={`text-gray-300 hover:text-white text-sm lg:text-base ${markTab === 'shop' ? ('border-b-3 border-blue-900 py-5 '):('')}`} onClick={() => setMarkTab('shop')}>Shop     
+                    <a  className={`text-gray-300 hover:text-white text-sm lg:text-base ${markTab === 'shop' ? ('border-b-3 border-blue-900 py-5 '):('')}`} onClick={() => setMarkTab('shop')}>Products     
                     </a>
                   </AnchorLink>
                   <button className='text-gray-300 pt-1 cursor-pointer animation-in duration-300 slide-in-from-bottom' onClick={(e) =>  {e.preventDefault(),
@@ -167,7 +167,7 @@ const Navbar = ({scrolled}) => {
                   <div className='relative'>
         <AnchorLink href="#shop" offset={50}>
           <a className='flex items-center justify-center gap-2 text-gray-300 border border-slate-700 py-2 hover:text-gray-200/50 bg-slate-700/50 hover:bg-slate-950 rounded-xl text-sm lg:text-base cursor-pointer' onClick={() => setOpenMenu(false)}>
-            Shop
+            Product
             <button 
               className='text-gray-300' 
               onClick={(e) => {
@@ -238,6 +238,224 @@ const Navbar = ({scrolled}) => {
                 </div>
             </div>
             )}
+
+{/*  
+    <section id="products" class="py-20 px-8 bg-slate-100">
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-slate-900 mb-12">
+            Featured Drums
+        </h2>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+   
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all cursor-pointer border border-slate-200">
+                <div class="h-64 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-8xl relative overflow-hidden">
+                    <span class="absolute text-9xl opacity-20">🥁</span>
+                    <span class="relative z-10">🪘</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Talking Drum (Gangan)</h3>
+                    <p class="text-slate-600 text-sm mb-4">The iconic hourglass-shaped drum that mimics Yoruba tonal language</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-slate-900">₦45,000</span>
+                        <button class="bg-slate-900 text-white px-5 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-md hover:shadow-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+     
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all cursor-pointer border border-slate-200">
+                <div class="h-64 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-8xl relative overflow-hidden">
+                    <span class="absolute text-9xl opacity-20">🥁</span>
+                    <span class="relative z-10">🥁</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Dundun (Bass Drum)</h3>
+                    <p class="text-slate-600 text-sm mb-4">Large ceremonial drum with deep, resonant tones for traditional ceremonies</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-slate-900">₦85,000</span>
+                        <button class="bg-slate-900 text-white px-5 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-md hover:shadow-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all cursor-pointer border border-slate-200">
+                <div class="h-64 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-8xl relative overflow-hidden">
+                    <span class="absolute text-9xl opacity-20">🥁</span>
+                    <span class="relative z-10">🪘</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Bata Drum Set</h3>
+                    <p class="text-slate-600 text-sm mb-4">Sacred three-drum ensemble used in Yoruba religious ceremonies</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-slate-900">₦125,000</span>
+                        <button class="bg-slate-900 text-white px-5 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-md hover:shadow-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all cursor-pointer border border-slate-200">
+                <div class="h-64 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-8xl relative overflow-hidden">
+                    <span class="absolute text-9xl opacity-20">🥁</span>
+                    <span class="relative z-10">🥁</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Sakara Drum</h3>
+                    <p class="text-slate-600 text-sm mb-4">Clay pot drum covered with goatskin, perfect for acoustic music</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-slate-900">₦35,000</span>
+                        <button class="bg-slate-900 text-white px-5 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-md hover:shadow-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-20 px-8 bg-white">
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-slate-900 mb-12">
+            Shop by Category
+        </h2>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <div class="bg-slate-50 p-8 rounded-xl text-center shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-pointer border border-slate-200">
+                <div class="text-6xl mb-4">🪘</div>
+                <h3 class="text-xl font-bold text-slate-900">Talking Drums</h3>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-xl text-center shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-pointer border border-slate-200">
+                <div class="text-6xl mb-4">🥁</div>
+                <h3 class="text-xl font-bold text-slate-900">Ceremonial Drums</h3>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-xl text-center shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-pointer border border-slate-200">
+                <div class="text-6xl mb-4">🎵</div>
+                <h3 class="text-xl font-bold text-slate-900">Drum Accessories</h3>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-xl text-center shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-pointer border border-slate-200">
+                <div class="text-6xl mb-4">📚</div>
+                <h3 class="text-xl font-bold text-slate-900">Learning Materials</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-8 bg-slate-100">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <div class="bg-gradient-to-br from-slate-800 to-slate-950 rounded-2xl h-96 flex items-center justify-center text-9xl shadow-2xl">
+                🎭
+            </div>
+
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                    Preserving Yoruba Heritage
+                </h2>
+                <p class="text-slate-700 mb-4 leading-relaxed">
+                    At Ayan Drums, we are dedicated to preserving the rich musical heritage of the Yoruba people. Each drum is handcrafted by skilled artisans using traditional techniques passed down through generations.
+                </p>
+                <p class="text-slate-700 mb-4 leading-relaxed">
+                    Our drums are made from premium African hardwoods and authentic animal hides, ensuring authentic sound quality and durability. Whether you're a professional musician, cultural enthusiast, or collector, we have the perfect drum for you.
+                </p>
+                <p class="text-slate-700 mb-6 leading-relaxed">
+                    We ship nationwide across Nigeria and internationally, bringing the soul of Yoruba percussion to the world.
+                </p>
+                <a href="#contact" class="bg-slate-900 text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-slate-800 transition-colors inline-block shadow-lg hover:shadow-xl">
+                    Contact Us
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-20 px-8 bg-slate-900 text-white">
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-slate-100 mb-12">
+            What Our Customers Say
+        </h2>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="bg-slate-800/50 backdrop-blur-lg p-8 rounded-xl border border-slate-700 hover:border-slate-600 transition-colors">
+                <p class="italic mb-4 leading-relaxed text-slate-200">
+                    "The talking drum I purchased is exceptional! The craftsmanship is outstanding and the sound is authentic. Highly recommended!"
+                </p>
+                <p class="font-bold text-slate-100">- Adewale Johnson, Lagos</p>
+            </div>
+
+            <div class="bg-slate-800/50 backdrop-blur-lg p-8 rounded-xl border border-slate-700 hover:border-slate-600 transition-colors">
+                <p class="italic mb-4 leading-relaxed text-slate-200">
+                    "As a cultural dance troupe, we needed quality drums for our performances. Ayan Drums delivered beyond our expectations!"
+                </p>
+                <p class="font-bold text-slate-100">- Folake Adeyemi, Ibadan</p>
+            </div>
+
+            <div class="bg-slate-800/50 backdrop-blur-lg p-8 rounded-xl border border-slate-700 hover:border-slate-600 transition-colors">
+                <p class="italic mb-4 leading-relaxed text-slate-200">
+                    "Fast delivery, excellent customer service, and most importantly, authentic Yoruba drums. I'll definitely order again!"
+                </p>
+                <p class="font-bold text-slate-100">- Chioma Okafor, Abuja</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-950 text-white py-12 px-8 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            
+            <div>
+                <h3 class="text-slate-200 font-bold text-xl mb-4">About Ayan Drums</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Your trusted source for authentic Yoruba drums and percussion instruments. Handcrafted with love in Nigeria.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-slate-200 font-bold text-xl mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="text-slate-400 hover:text-slate-200 transition-colors">Home</a></li>
+                    <li><a href="#products" class="text-slate-400 hover:text-slate-200 transition-colors">Products</a></li>
+                    <li><a href="#about" class="text-slate-400 hover:text-slate-200 transition-colors">About Us</a></li>
+                    <li><a href="#contact" class="text-slate-400 hover:text-slate-200 transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-slate-200 font-bold text-xl mb-4">Customer Service</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-slate-400 hover:text-slate-200 transition-colors">Shipping Info</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-slate-200 transition-colors">Returns</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-slate-200 transition-colors">FAQs</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-slate-200 transition-colors">Track Order</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-slate-200 font-bold text-xl mb-4">Contact Us</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li>📍 Port Harcourt, Rivers State, Nigeria</li>
+                    <li>📞 +234 XXX XXX XXXX</li>
+                    <li>📧 info@ayandrums.ng</li>
+                    <li>🕒 Mon-Sat: 9am - 6pm</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="text-center pt-8 border-t border-slate-900 text-slate-400 text-sm">
+            <p>&copy; 2025 Ayan Drums. All Rights Reserved. | Bringing Yoruba Culture to the World 🇳🇬</p>
+        </div>
+    </footer> */}
+
+
     </nav>
   )
 }

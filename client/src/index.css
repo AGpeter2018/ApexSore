@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+@layer utilities {
+    .animation-in {
+        animation-fill-mode: both;
+    }
+
+    .slide-in-from-top {
+        animation-name: slideInFromTop;
+    }
+
+    .duration-700 {
+        animation-duration: 700ms;
+    }
+
+    .animate-fadeInUp {
+        animation: fadeInUp 1s ease;
+    }
+
+    .animate-fadeInUp-delay-1 {
+        animation: fadeInUp 1s ease 0.2s backwards;
+    }
+
+    .animate-fadeInUp-delay-2 {
+        animation: fadeInUp 1s ease 0.4s backwards;
+    }
+
+    @keyframes slideInFromTop {
+        from {
+            opacity: 0;
+            transform: translateY(-1rem);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0rem);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

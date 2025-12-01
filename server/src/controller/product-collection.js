@@ -1,8 +1,15 @@
-import Collection from "../../models/product-collections.model.js";
+import Collection from '../../models/product-collections.model.js';
+import Product from '../../models/Product.model.js';
+
 // Get all collections
 export const getCollections = async (req, res) => {
     try {
-        const collections = await Collection.find({ isActive: true });
+        const { featured, isActive = 'true' } = req.query;
+        
+        const filter = { isActive: isActive === 'true' };
+        if (featured !== undefined) filter.featured = featured === 'true';
+        
+        const collections = await Collection.find(filter).sort({ sortOrder: 1, createdAt: -1 });
         
         res.status(200).json({
             success: true,
@@ -17,10 +24,13 @@ export const getCollections = async (req, res) => {
     }
 };
 
-// Get single collection
-export const getCollection = async (req, res) => {
+// Get single collection by slug with its products
+export const getCollectionBySlug = async (req, res) => {
     try {
-        const collection = await Collection.findById(req.params.id);
+        const collection = await Collection.findOne({ 
+            slug: req.params.slug,
+            isActive: true 
+        });
         
         if (!collection) {
             return res.status(404).json({
@@ -29,9 +39,19 @@ export const getCollection = async (req, res) => {
             });
         }
         
+        // Get products in this collection
+        const products = await Product.find({ 
+            collection: collection._id,
+            isActive: true 
+        }).select('name slug price compareAtPrice images drumType stock rating numReviews');
+        
         res.status(200).json({
             success: true,
-            data: collection
+            data: {
+                collection,
+                products,
+                productCount: products.length
+            }
         });
     } catch (error) {
         res.status(500).json({
@@ -41,37 +61,19 @@ export const getCollection = async (req, res) => {
     }
 };
 
-// Create new collection
+// Create collection
 export const createCollection = async (req, res) => {
     try {
-        console.log('Creating collection with data:', req.body);
-        const { name, description, image } = req.body;
+        const collection = await Collection.create(req.body);
         
-        if (!name) {
-            return res.status(400).json({
-                success: false,
-                message: 'Name is required'
-            });
-        }
-        
-        console.log('Attempting to save to database...');
-        const collection = await Collection.create({
-            name,
-            description,
-            image
-        });
-        
-        console.log('Collection created:', collection);
         res.status(201).json({
             success: true,
             data: collection
         });
     } catch (error) {
-        console.error('Error creating collection:', error);
         res.status(400).json({
             success: false,
-            message: error.message,
-            errorType: error.name
+            message: error.message
         });
     }
 };

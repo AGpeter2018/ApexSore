@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import router from './routes/product-collection-route.js';
+import productRouter from './routes/product.routes.js';
 
 const app = express()
 // Middleware
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended: true}))
 
 // Routes
 app.use('/api/collections', router)
+app.use('/api/products', router)
 
 
 export default app

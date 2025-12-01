@@ -1,10 +1,8 @@
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import mongoose from 'mongoose';
+import connectDB from './config/db.js';
 import app from './app.js';
-
-
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -20,25 +18,11 @@ console.log('PORT:', process.env.PORT);
 
 const startServer = async () => {
     try {
-        // Set mongoose options BEFORE connecting
-        mongoose.set('strictQuery', false);
+        // Connect to MongoDB and WAIT for it to be ready
+        await connectDB();
         
-        // Connect to MongoDB
-        console.log('Connecting to MongoDB...');
-        await mongoose.connect(process.env.MONGODB_URL, {
-            serverSelectionTimeoutMS: 30000,
-            socketTimeoutMS: 45000,
-            connectTimeoutMS: 30000,
-        });
-
-        console.log(`✅ MongoDB Connected: ${mongoose.connection.host}`);
-        
-        // Ensure connection is ready
-        if (mongoose.connection.readyState !== 1) {
-            throw new Error('MongoDB connection not ready');
-        }
-        
-        console.log('✅ MongoDB is ready to accept operations');
+        // Give mongoose a moment to fully initialize
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
         const PORT = process.env.PORT || 5000;
         
@@ -55,14 +39,5 @@ const startServer = async () => {
         process.exit(1);
     }
 };
-
-// Handle connection errors
-mongoose.connection.on('error', (err) => {
-    console.error('MongoDB error:', err);
-});
-
-mongoose.connection.on('disconnected', () => {
-    console.log('MongoDB disconnected');
-});
 
 startServer();

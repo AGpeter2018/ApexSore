@@ -51,7 +51,7 @@ const categories = [
 const Products = () => {
   return (
     <div>
-    <section id="product" class="py-20 px-8 bg-slate-500/30">
+    <section id="product" className="py-20 px-8 bg-slate-500/30">
         <h2 class="text-4xl md:text-5xl font-bold text-center text-slate-900 mb-12">
             Featured Drums
         </h2>
@@ -59,8 +59,8 @@ const Products = () => {
 
              {
                  products.map((product, id) => {
-                     return   <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all cursor-pointer border border-slate-200">
-                <div class="h-64 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-8xl relative overflow-hidden">
+                     return   <div key={id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all cursor-pointer border border-slate-200">
+                <div className="h-64 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-8xl relative overflow-hidden">
                     <span class="absolute text-9xl opacity-20">🥁</span>
                     <span class="relative z-10">
                         <img src={product.productImage} alt="" />
